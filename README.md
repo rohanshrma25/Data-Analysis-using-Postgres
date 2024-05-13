@@ -4,16 +4,17 @@ This repository contains a collection of SQL queries and analyses related to hot
 ## Project Overview
 The project consists of SQL queries organized into different categories, each addressing a specific aspect of hotel management:
 
-* Number of Bookings by Room Class:
+* Number of Bookings by Room Class:  
   Utilizes aggregate functions to analyze the number of bookings per room class.
 
-* Properties with Specified Ratings:
+* Properties with Specified Ratings:  
   Employs aggregate functions and filtering to identify properties with an average rating below a certain threshold.
 
-* Stay Duration:
+* Stay Duration:  
   Calculates stay durations using date functions.
 
-* City-wise Average Hotel Occupancy: Utilizes aggregate functions and arithmetic operations to compute the average occupancy percentage for hotels in each city.
+* City-wise Average Hotel Occupancy:  
+  Utilizes aggregate functions and arithmetic operations to compute the average occupancy percentage for hotels in each city.
 
 * Day of the Week with Highest Bookings in July: Uses date functions, filtering, and aggregation to determine the day of the week with the highest number of bookings in July.
 
