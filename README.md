@@ -1,36 +1,36 @@
-## SQL Project Portfolio
+# SQL Project Portfolio
 This repository contains a collection of SQL queries and analyses related to hotel management. The project covers various aspects such as bookings, revenue analysis, occupancy rates, and customer ratings.
 
-Project Overview
+## Project Overview
 The project consists of SQL queries organized into different categories, each addressing a specific aspect of hotel management:
 
-Number of Bookings by Room Class: Utilizes aggregate functions to analyze the number of bookings per room class.
+* Number of Bookings by Room Class: Utilizes aggregate functions to analyze the number of bookings per room class.
 
-Properties with Specified Ratings: Employs aggregate functions and filtering to identify properties with an average rating below a certain threshold.
+* Properties with Specified Ratings: Employs aggregate functions and filtering to identify properties with an average rating below a certain threshold.
 
-Stay Duration: Calculates stay durations using date functions.
+* Stay Duration: Calculates stay durations using date functions.
 
-City-wise Average Hotel Occupancy: Utilizes aggregate functions and arithmetic operations to compute the average occupancy percentage for hotels in each city.
+* City-wise Average Hotel Occupancy: Utilizes aggregate functions and arithmetic operations to compute the average occupancy percentage for hotels in each city.
 
-Day of the Week with Highest Bookings in July: Uses date functions, filtering, and aggregation to determine the day of the week with the highest number of bookings in July.
+* Day of the Week with Highest Bookings in July: Uses date functions, filtering, and aggregation to determine the day of the week with the highest number of bookings in July.
 
-City-wise Revenue Realized: Applies aggregate functions, conditional logic, and arithmetic operations to calculate the total revenue realized by hotels in each city, considering cancelled bookings.
+* City-wise Revenue Realized: Applies aggregate functions, conditional logic, and arithmetic operations to calculate the total revenue realized by hotels in each city, considering cancelled bookings.
 
-Top Properties with Highest Ratings: Utilizes aggregate functions, ranking functions, and joins to list the top properties based on average ratings.
+* Top Properties with Highest Ratings: Utilizes aggregate functions, ranking functions, and joins to list the top properties based on average ratings.
 
-Revenue for Each Month (Luxury Category): Utilizes aggregate functions, conditional logic, and date functions to calculate revenue for luxury hotels each month, considering different booking statuses.
+* Revenue for Each Month (Luxury Category): Utilizes aggregate functions, conditional logic, and date functions to calculate revenue for luxury hotels each month, considering different booking statuses.
 
-Month-on-Month Growth Rate: Utilizes window functions, arithmetic operations, and conditional logic to calculate the month-on-month growth rate in revenue for each property.
+* Month-on-Month Growth Rate: Utilizes window functions, arithmetic operations, and conditional logic to calculate the month-on-month growth rate in revenue for each property.
 
-Pivot Table: Revenue by Room Class: Generates a pivot table showing revenue breakdown by room class using aggregate functions and pivot operations.
+* Pivot Table: Revenue by Room Class: Generates a pivot table showing revenue breakdown by room class using aggregate functions and pivot operations.
 
-Ranking Top Revenue Properties: Employs aggregate functions, ranking functions, and joins to rank properties based on total revenue generated.
+* Ranking Top Revenue Properties: Employs aggregate functions, ranking functions, and joins to rank properties based on total revenue generated.
 
-Types of SQL Queries Used
+## Types of SQL Queries Used
 The SQL queries in this project employ various SQL techniques, including:
 
-Aggregate functions
-Filtering and conditional logic
+-Aggregate functions
+-Filtering and conditional logic
 Date functions
 Joins and relationships
 Window functions
