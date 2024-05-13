@@ -1,6 +1,4 @@
-
-
---No of bookings as per room class
+-- 1 No of bookings as per room class
 
 SELECT
     dr.room_class,
@@ -13,7 +11,7 @@ GROUP BY
     dr.room_class;
 	
 
---Properties with specified ratings
+-- 2 Properties with specified ratings
 
 SELECT
     dh.property_name,
@@ -28,8 +26,7 @@ HAVING
     AVG(fb.ratings_given) < 3;
 
 
-
---Stay duration
+-- 3 Stay duration
 
 SELECT
     fb.booking_id,
@@ -45,8 +42,7 @@ JOIN
     dim_rooms dr ON fb.room_category = dr.room_id;
 
 
-
---City-wise Avg hotel Occupancy 
+-- 4 City-wise Avg hotel Occupancy 
 
 SELECT
     city,
@@ -59,8 +55,7 @@ GROUP BY
     city;
 
 
-
---Day of the week with the highest number of bookings in July:
+-- 5 Day of the week with the highest number of bookings in July:
 
 SELECT 
     DATENAME(WEEKDAY, fb.check_in_date) AS day_of_week,
@@ -75,10 +70,7 @@ ORDER BY
     total_bookings DESC;
 
 
-
-
-
---City wise revenue realized 
+-- 6 City wise revenue realized 
 
 SELECT
     dh.city,
@@ -92,8 +84,7 @@ GROUP BY
     dh.city;
 
 
-
---Top 5 properties with highest ratings
+-- 7 Top 5 properties with highest ratings
 
 WITH Ratings AS (
     SELECT
@@ -116,8 +107,7 @@ ORDER BY
     rc.avg_rating DESC;
 
 
-
---Revenue for each month (Luxury category)
+-- 8 Revenue for each month (Luxury category)
 
 SELECT
     dh.property_id,
@@ -135,7 +125,7 @@ GROUP BY
     dh.property_id, dh.property_name, DATENAME(MONTH, fb.check_in_date);
 
 
---Month on month growth rate
+-- 9 Month on month growth rate
 
 WITH RevenueCTE AS (
     SELECT
@@ -161,9 +151,7 @@ FROM
     RevenueCTE;
 
 
-
---Pivot table: revenue as per room class
-
+-- 10 Pivot table: revenue as per room class
 
 SELECT *
 FROM (
@@ -177,8 +165,7 @@ PIVOT (
 ) AS pivoted_table;
 
 
-
---Ranking top revenue property name
+-- 11 Ranking top revenue property name
 
 WITH RevenueSummary AS (
     SELECT
@@ -198,19 +185,3 @@ SELECT top 3
     revenue_rank
 FROM
     RevenueSummary
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
