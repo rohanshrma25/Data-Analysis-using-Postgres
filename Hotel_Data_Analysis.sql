@@ -28,18 +28,11 @@ HAVING
 
 -- 3 Stay duration
 
-SELECT
-    fb.booking_id,
-	fb.no_guests,
-    fb.check_in_date,
-    fb.checkout_date,
-    DATEDIFF(day, fb.check_in_date, fb.checkout_date) AS stay_duration_days
+SELECT 
+	fb.booking_id, fb.no_guests, fb.check_in_date, fb.checkout_date, 
+	DATEDIFF(DAY, fb.check_in_date, fb.checkout_date) AS stay_duration
 FROM
-    fact_bookings fb
-JOIN
-    dim_hotels dh ON fb.property_id = dh.property_id
-JOIN
-    dim_rooms dr ON fb.room_category = dr.room_id;
+	fact_bookings fb
 
 
 -- 4 City-wise Avg hotel Occupancy 
