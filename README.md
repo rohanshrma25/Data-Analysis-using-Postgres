@@ -1,41 +1,90 @@
 # SQL Project Portfolio
-This repository contains a collection of SQL queries and analyses related to hotel management. The project covers various aspects such as bookings, revenue analysis, occupancy rates, and customer ratings.
+This repository contains a PostgreSQL project focusing on analyzing hotel booking data. It includes data import scripts, schema definitions, and SQL queries for various analytical insights.
 
-## Project Overview
+## Prerequisites
+
+- PostgreSQL installed
+- Access to `psql` command-line tool
+- CSV data files for bulk uploading: `region.csv`, `sales_rep.csv`, `accounts.csv`, `web_events.csv`, `orders.csv` (refer to dataset folder in repo)
+
+
+## Database Creation
+
+To create the database and tables, following SQL scripts are used:
+
+```sql
+postgres=# create database ds;
+
+postgres=# \c ds;
+
+create table dim_hotels(
+    property_id int primary key,
+    property_name varchar,
+    category varchar,
+    city varchar
+);
+
+
+create table dim_rooms(
+    room_id varchar primary key,
+    room_class varchar unique
+);
+
+
+create table fact_aggregated_bookings(
+    property_id int,
+    check_in_date date,
+    room_category varchar,
+    successful_bookings int,
+    capacity int,
+    foreign key (property_id) references dim_hotels(property_id),
+    foreign key (room_category) references dim_rooms(room_id)
+);
+
+
+create table fact_booking(
+    booking_id varchar,
+    property_id int,
+    booking_date date,
+    check_in_date date,
+    checkout_date date,
+    no_guests int,
+    room_category varchar,
+    booking_platform varchar,
+    ratings_given int,
+    booking_status varchar,
+    revenue_generated int,
+    revenue_realized int,
+    foreign key (property_id) references dim_hotels(property_id),
+    foreign key (room_category) references dim_rooms(room_id)
+);
+```
+
+## Bulk Uploading Data
+
+Bulk upload data from CSV files into the corresponding tables using the following `psql` commands.
+
+```
+ds=# \copy dim_hotels from 'C:\Users\Rohan\OneDrive\Desktop\Hotel Data\dim_hotels.csv' DELIMITER ',' CSV HEADER;
+ds=# \copy dim_rooms from 'C:\Users\Rohan\OneDrive\Desktop\Hotel Data\dim_rooms.csv' DELIMITER ',' CSV HEADER;
+ds=# \copy fact_aggregated_bookings from 'C:\Users\Rohan\OneDrive\Desktop\Hotel Data\fact_aggregated_bookings.csv' DELIMITER ',' CSV HEADER;
+ds=# \copy fact_booking from 'C:\Users\Rohan\OneDrive\Desktop\Hotel Data\fact_booking.csv' DELIMITER ',' CSV HEADER;
+```
+
+
+## Running Queries
 The project consists of SQL queries organized into different categories, each addressing a specific aspect of hotel management:
 
-* Number of Bookings by Room Class:  
-  Utilizes aggregate functions to analyze the number of bookings per room class.
-
-* Properties with Specified Ratings:  
-  Employs aggregate functions and filtering to identify properties with an average rating below a certain threshold.
-
-* Stay Duration:  
-  Calculates stay durations using date functions.
-
-* City-wise Average Hotel Occupancy:  
-  Utilizes aggregate functions and arithmetic operations to compute the average occupancy percentage for hotels in each city.
-
-* Day of the Week with Highest Bookings in July:  
-  Uses date functions, filtering, and aggregation to determine the day of the week with the highest number of bookings in July.
-
-* City-wise Revenue Realized:  
-  Applies aggregate functions, conditional logic, and arithmetic operations to calculate the total revenue realized by hotels in each city, considering cancelled bookings.
-
-* Top Properties with Highest Ratings:  
-    Utilizes aggregate functions, ranking functions, and joins to list the top properties based on average ratings.
-
-* Revenue for Each Month (Luxury Category):  
-  Utilizes aggregate functions, conditional logic, and date functions to calculate revenue for luxury hotels each month, considering different booking statuses.
-
-* Month-on-Month Growth Rate:  
-  Utilizes window functions, arithmetic operations, and conditional logic to calculate the month-on-month growth rate in revenue for each property.
-
-* Pivot Table:  
-  Revenue by Room Class: Generates a pivot table showing revenue breakdown by room class using aggregate functions and pivot operations.
-
-* Ranking Top Revenue Properties:  
-  Employs aggregate functions, ranking functions, and joins to rank properties based on total revenue generated.
+* Total bookings per room class.
+* Properties with low ratings.
+* Monthly revenue by property.
+* Stay duration analysis.
+* City-wise average hotel occupancy.
+* Day of the week with the highest bookings in July.
+* City-wise revenue realized.
+* Monthly growth rate analysis.
+* Top properties with highest ratings.
+* Revenue by month for luxury category hotels.
 
 ## Types of SQL Queries Used
 The SQL queries in this project employ various SQL techniques, including:
@@ -45,9 +94,7 @@ The SQL queries in this project employ various SQL techniques, including:
 * Date functions
 * Joins and relationships
 * Window functions
-* Pivot operations
 * Ranking functions
-* Each query is tailored to perform specific analyses or calculations based on the hotel management database schema.
 
 ## Usage
 Each SQL query is documented and can be directly executed against a compatible relational database management system (RDBMS). Simply copy and paste the query into your preferred SQL editor or environment.
