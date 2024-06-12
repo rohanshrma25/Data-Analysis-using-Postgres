@@ -65,10 +65,10 @@ create table fact_booking(
 Bulk upload data from CSV files into the corresponding tables using the following `psql` commands.
 
 ```
-ds=# \copy dim_hotels from 'C:\Users\Rohan\OneDrive\Desktop\Hotel Data\dim_hotels.csv' DELIMITER ',' CSV HEADER;
-ds=# \copy dim_rooms from 'C:\Users\Rohan\OneDrive\Desktop\Hotel Data\dim_rooms.csv' DELIMITER ',' CSV HEADER;
-ds=# \copy fact_aggregated_bookings from 'C:\Users\Rohan\OneDrive\Desktop\Hotel Data\fact_aggregated_bookings.csv' DELIMITER ',' CSV HEADER;
-ds=# \copy fact_booking from 'C:\Users\Rohan\OneDrive\Desktop\Hotel Data\fact_booking.csv' DELIMITER ',' CSV HEADER;
+ds=# \copy dim_hotels from 'path_to\dim_hotels.csv' DELIMITER ',' CSV HEADER;
+ds=# \copy dim_rooms from 'path_to\dim_rooms.csv' DELIMITER ',' CSV HEADER;
+ds=# \copy fact_aggregated_bookings from 'path_to\fact_aggregated_bookings.csv' DELIMITER ',' CSV HEADER;
+ds=# \copy fact_booking from 'path_to\fact_booking.csv' DELIMITER ',' CSV HEADER;
 ```
 
 
