@@ -73,7 +73,7 @@ ds=# \copy fact_booking from 'C:\Users\Rohan\OneDrive\Desktop\Hotel Data\fact_bo
 
 
 ## Running Queries
-The project consists of SQL queries organized into different categories, each addressing a specific aspect of hotel management:
+Open Data_Analysis.sql to find various SQL queries for analyzing the data. Execute these queries in your PostgreSQL environment to obtain insights such as
 
 * Total bookings per room class.
 * Properties with low ratings.
@@ -89,12 +89,12 @@ The project consists of SQL queries organized into different categories, each ad
 ## Types of SQL Queries Used
 The SQL queries in this project employ various SQL techniques, including:
 
+* Window functions
+* Ranking functions
+* Joins and relationships
 * Aggregate functions
 * Filtering and conditional logic
 * Date functions
-* Joins and relationships
-* Window functions
-* Ranking functions
 
 ## Usage
 Each SQL query is documented and can be directly executed against a compatible relational database management system (RDBMS). Simply copy and paste the query into your preferred SQL editor or environment.
