@@ -1,5 +1,5 @@
-# SQL Project Portfolio
-This repository contains a PostgreSQL project focusing on analyzing hotel booking data. It includes data import scripts, schema definitions, and SQL queries for various analytical insights.
+# Database creation, 
+This repository contains SQL scripts and instructions for setting up a database, importing data in bulk using psql, and performing various data analysis tasks to derive insights into hotel bookings, revenues, occupancy, and guest preferences.
 
 ## Prerequisites
 
