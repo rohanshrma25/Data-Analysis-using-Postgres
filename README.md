@@ -1,4 +1,4 @@
-# Database creation, 
+# SQL-Based Analytics 
 This repository contains SQL scripts and instructions for setting up a database, importing data in bulk using psql, and performing various data analysis tasks to derive insights into hotel bookings, revenues, occupancy, and guest preferences.
 
 ## Prerequisites
