@@ -5,7 +5,7 @@ This repository contains SQL scripts and instructions for setting up a database,
 
 - PostgreSQL installed
 - Access to `psql` command-line tool
-- CSV data files for bulk uploading: `region.csv`, `sales_rep.csv`, `accounts.csv`, `web_events.csv`, `orders.csv` (refer to dataset folder in repo)
+- CSV data files for bulk uploading: `dim_hotels.csv`, `dim_rooms.csv`, `fact_aggregated_bookings.csv`, `fact_booking.csv` (refer to dataset folder in repo)
 
 
 ## Database Creation
