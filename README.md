@@ -5,7 +5,7 @@ This repository contains SQL scripts and instructions for setting up a database,
 
 - PostgreSQL installed
 - Access to `psql` command-line tool
-- CSV data files for bulk uploading: `dim_hotels.csv`, `dim_rooms.csv`, `fact_aggregated_bookings.csv`, `fact_booking.csv` (refer to dataset folder in repo)
+- CSV data files for bulk uploading: `dim_hotels.csv`, `dim_rooms.csv`, `fact_aggregated_bookings.csv`, `fact_bookings.csv` (refer to dataset folder in repo)
 
 
 ## Database Creation
@@ -42,7 +42,7 @@ create table fact_aggregated_bookings(
 );
 
 
-create table fact_booking(
+create table fact_bookings(
     booking_id varchar,
     property_id int,
     booking_date date,
@@ -68,7 +68,7 @@ Bulk upload data from CSV files into the corresponding tables using the followin
 ds=# \copy dim_hotels from 'path_to\dim_hotels.csv' DELIMITER ',' CSV HEADER;
 ds=# \copy dim_rooms from 'path_to\dim_rooms.csv' DELIMITER ',' CSV HEADER;
 ds=# \copy fact_aggregated_bookings from 'path_to\fact_aggregated_bookings.csv' DELIMITER ',' CSV HEADER;
-ds=# \copy fact_booking from 'path_to\fact_booking.csv' DELIMITER ',' CSV HEADER;
+ds=# \copy fact_booking from 'path_to\fact_bookings.csv' DELIMITER ',' CSV HEADER;
 ```
 
 
