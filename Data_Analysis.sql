@@ -72,7 +72,7 @@ select
 from 
 	fact_bookings 
 where 
-	check_in_date >= '2022-07-01' and check_in_date <= '2022-08-01' 
+	check_in_date between date('2022-07-01') and ('2022-07-31') 
 group by 
 	to_char(check_in_date, 'day')
 order by 
