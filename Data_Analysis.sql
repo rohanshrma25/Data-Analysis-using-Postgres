@@ -96,7 +96,8 @@ select
 	dh.property_id, property_name, 
 	extract(month from check_in_date) as month,
 	sum(revenue_generated) as total_revenue,
-	round((sum(revenue_generated)::numeric/lag(sum(revenue_generated)::numeric) over(partition by dh.property_id order by extract(month from check_in_date))-1)*100,2) as pcv
+	round((sum(revenue_generated) - lag(sum(revenue_generated)) over(order by extract(month from booking_date)) )*100.0 / lag(sum(revenue_generated)) over(order by extract(month from booking_date)) ,2) as order
+ as pcv
 from 
 	dim_hotels dh join fact_bookings fb on dh.property_id=fb.property_id
 group by 
