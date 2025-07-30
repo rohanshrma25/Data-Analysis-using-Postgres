@@ -3,7 +3,7 @@
 select 
 	room_class, count(*) as total_bookings
 from 
-	dim_rooms dr join fact_bookings fb on room_category=room_id
+	dim_rooms dr left join fact_bookings fb on room_category=room_id
 group by 
 	room_class;
 
@@ -13,7 +13,7 @@ group by
 select 
 	dh.property_name, avg(ratings_given) as avg_ratings
 from 
-	dim_hotels dh join fact_bookings fb on dh.property_id=fb.property_id
+	dim_hotels dh left join fact_bookings fb on dh.property_id=fb.property_id
 group by 
 	property_name
 having 
@@ -37,9 +37,9 @@ select
 	row_number() over(partition by to_char(check_in_date,'month') order by sum(fb.revenue_generated) desc) as rev_rank
 from 
 	fact_bookings fb 
-join 
+left join 
 	monthly_rev mr on to_char(check_in_date,'month')=mr.month
-join 
+left join 
 	dim_hotels dh on fb.property_id=dh.property_id
 group by
 	to_char(check_in_date,'month'), dh.property_id, dh.property_name, mr.total_revenue
